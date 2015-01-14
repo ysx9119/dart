@@ -7,10 +7,27 @@ before_install() {
   (cd nlopt-2.4.1/; sh autogen.sh; make CPPFLAGS='-fPIC' && sudo make install)
 }
 
-sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-sudo apt-get update -qq
-if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.8; fi
-if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
+wget -O boost_1_55_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.55.0/boost_1_55_0.tar.gz/download
+tar xzvf boost_1_55_0.tar.gz
+cd boost_1_55_0/
+
+sudo apt-get update
+sudo apt-get install build-essential g++ python-dev autotools-dev libicu-dev build-essential libbz2-dev 
+
+./bootstrap.sh --prefix=/usr/local
+
+n=`cat /proc/cpuinfo | grep "cpu cores" | uniq | awk '{print $NF}'`
+
+sudo ./b2 --with=all -j $n install 
+
+sudo sh -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/local.conf'
+
+sudo ldconfig
+
+# sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+# sudo apt-get update -qq
+# if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.8; fi
+# if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
 
 sudo add-apt-repository --yes ppa:libccd-debs/ppa
 sudo add-apt-repository --yes ppa:fcl-debs/ppa
@@ -44,5 +61,5 @@ else
   sudo apt-get --yes --force-yes install $APT_CORE
 fi
 
-(before_install)
+# (before_install)
 
