@@ -25,10 +25,10 @@ sudo ldconfig
 # if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
 
 # Install gcc 4.8 for C++11
-sudo apt-get install python-software-properties --yes --force-yes
-sudo add-apt-repository ppa:ubuntu-toolchain-r/test --yes --force-yes
+sudo apt-get --yes install python-software-properties 
+sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
 sudo apt-get update
-sudo apt-get install gcc-4.8 --yes --force-yes
+sudo apt-get --yes install gcc-4.8
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 50
 
 sudo add-apt-repository --yes ppa:libccd-debs/ppa
@@ -40,7 +40,6 @@ APT_CORE='
 cmake
 freeglut3-dev
 libassimp-dev
-libboost-all-dev
 libccd-dev
 libeigen3-dev
 libfcl-dev
