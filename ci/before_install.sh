@@ -7,27 +7,29 @@ before_install() {
   (cd nlopt-2.4.1/; sh autogen.sh; make CPPFLAGS='-fPIC' && sudo make install)
 }
 
+# Install boost 1.55 compatible with C++11
 wget --quiet -O boost_1_55_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.55.0/boost_1_55_0.tar.gz/download
 tar -xzf boost_1_55_0.tar.gz
 cd boost_1_55_0/
-
-sudo apt-get update
-sudo apt-get install build-essential g++ python-dev autotools-dev libicu-dev build-essential libbz2-dev 
-
+sudo apt-get update -qq
+sudo apt-get install -qq build-essential g++ python-dev autotools-dev libicu-dev build-essential libbz2-dev 
 ./bootstrap.sh --prefix=/usr/local
-
 n=`cat /proc/cpuinfo | grep "cpu cores" | uniq | awk '{print $NF}'`
-
 sudo ./b2 --with=all -j $n install 
-
 sudo sh -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/local.conf'
-
 sudo ldconfig
 
 # sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
 # sudo apt-get update -qq
 # if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.8; fi
 # if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
+
+# Install gcc 4.8 for C++11
+sudo apt-get install python-software-properties --yes --force-yes
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test --yes --force-yes
+sudo apt-get update
+sudo apt-get install gcc-4.8 --yes --force-yes
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 50
 
 sudo add-apt-repository --yes ppa:libccd-debs/ppa
 sudo add-apt-repository --yes ppa:fcl-debs/ppa
