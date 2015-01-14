@@ -7,8 +7,8 @@ before_install() {
   (cd nlopt-2.4.1/; sh autogen.sh; make CPPFLAGS='-fPIC' && sudo make install)
 }
 
-wget -O boost_1_55_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.55.0/boost_1_55_0.tar.gz/download
-tar xzvf boost_1_55_0.tar.gz
+wget --quiet -O boost_1_55_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.55.0/boost_1_55_0.tar.gz/download
+tar -xzf boost_1_55_0.tar.gz
 cd boost_1_55_0/
 
 sudo apt-get update
