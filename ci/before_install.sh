@@ -13,7 +13,7 @@ sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
 sudo apt-get update
 sudo apt-get --yes install gcc-4.8 g++-4.8
 sudo apt-get --yes autoremove
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/g++-4.8 50
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 50
 sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50
 
 gcc --version
