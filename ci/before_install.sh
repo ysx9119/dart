@@ -22,7 +22,7 @@ tar -xzf boost_1_55_0.tar.gz
 cd boost_1_55_0/
 sudo apt-get -qq update
 sudo apt-get -qq install build-essential g++ python-dev autotools-dev libicu-dev build-essential libbz2-dev 
-./bootstrap.sh --prefix=/usr/local
+./bootstrap.sh --prefix=/usr/local &> ./output.log
 n=`cat /proc/cpuinfo | grep "cpu cores" | uniq | awk '{print $NF}'`
 sudo ./b2 --with=all -j $n install 
 sudo sh -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/local.conf'
