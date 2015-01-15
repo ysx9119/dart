@@ -24,7 +24,7 @@ sudo apt-get -qq update
 sudo apt-get -qq install build-essential g++ python-dev autotools-dev libicu-dev build-essential libbz2-dev 
 ./bootstrap.sh --prefix=/usr/local &>/dev/null  # mute the output
 n=`cat /proc/cpuinfo | grep "cpu cores" | uniq | awk '{print $NF}'`
-sudo ./b2 --with=all -j $n install 
+sudo ./b2 --with=all -j $n install &>/dev/null  # mute the output
 sudo sh -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/local.conf'
 sudo ldconfig
 
