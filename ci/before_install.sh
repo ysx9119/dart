@@ -16,6 +16,10 @@ sudo apt-get -qq --yes autoremove
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 50
 sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50
 
+# Install eigen-3.2.1 (for unsupported/Eigen/Splines)
+wget --quiet -O libeigen3-dev_3.2.1-1~precise1_all.deb http://packages.yade-dem.org/precise/libeigen3-dev_3.2.1-1~precise1_all.deb
+sudo dpkg -i libeigen3-dev_3.2.1-1~precise1_all.deb
+
 # Install boost 1.55 compatible with C++11
 wget --quiet -O boost_1_55_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.55.0/boost_1_55_0.tar.gz/download
 tar -xzf boost_1_55_0.tar.gz
@@ -38,7 +42,6 @@ cmake
 freeglut3-dev
 libassimp-dev
 libccd-dev
-libeigen3-dev
 libfcl-dev
 libxi-dev
 libxmu-dev
