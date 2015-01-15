@@ -62,5 +62,5 @@ else
   sudo apt-get -qq --yes --force-yes install $APT_CORE
 fi
 
-# (before_install)
+(before_install)
 
