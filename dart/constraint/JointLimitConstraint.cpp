@@ -370,7 +370,8 @@ void JointLimitConstraint::applyImpulse(double* _lambda)
     if (mActive[i] == false)
       continue;
 
-    mJoint->setConstraintImpulse(i, _lambda[localIndex]);
+    const double impulse = mJoint->getConstraintImpulse(i);
+    mJoint->setConstraintImpulse(i, impulse + _lambda[localIndex]);
 
     mOldX[i] = _lambda[localIndex];
 

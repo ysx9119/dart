@@ -348,7 +348,9 @@ TEST_F(JOINTS, POSITION_LIMIT)
   double timeStep = myWorld->getTimeStep();
   int nSteps = simTime / timeStep;
 
-  // Two seconds with positive control forces
+  // Two seconds with positive control forces and zero joint friction
+  joint0->setCoulombFriction(0, 0.0);
+  joint1->setCoulombFriction(0, 0.0);
   for (int i = 0; i < nSteps; i++)
   {
     joint0->setForce(0, 0.1);
@@ -365,7 +367,47 @@ TEST_F(JOINTS, POSITION_LIMIT)
     EXPECT_LE(jointPos1, limit1 + tol);
   }
 
-  // Two more seconds with negative control forces
+  // Two seconds with positive control forces and non-zero joint friction
+  joint0->setCoulombFriction(0, 0.01);
+  joint1->setCoulombFriction(0, 0.01);
+  for (int i = 0; i < nSteps; i++)
+  {
+    joint0->setForce(0, 0.1);
+    joint1->setForce(0, 0.1);
+    myWorld->step();
+
+    double jointPos0 = joint0->getPosition(0);
+    double jointPos1 = joint1->getPosition(0);
+
+    EXPECT_GE(jointPos0, -limit0 - tol);
+    EXPECT_GE(jointPos1, -limit1 - tol);
+
+    EXPECT_LE(jointPos0, limit0 + tol);
+    EXPECT_LE(jointPos1, limit1 + tol);
+  }
+
+  // Two more seconds with negative control forces and zero joint friction
+  joint0->setCoulombFriction(0, 0.0);
+  joint1->setCoulombFriction(0, 0.0);
+  for (int i = 0; i < nSteps; i++)
+  {
+    joint0->setForce(0, -0.1);
+    joint1->setForce(0, -0.1);
+    myWorld->step();
+
+    double jointPos0 = joint0->getPosition(0);
+    double jointPos1 = joint1->getPosition(0);
+
+    EXPECT_GE(jointPos0, -limit0 - tol);
+    EXPECT_GE(jointPos1, -limit1 - tol);
+
+    EXPECT_LE(jointPos0, limit0 + tol);
+    EXPECT_LE(jointPos1, limit1 + tol);
+  }
+
+  // Two more seconds with negative control forces and non-zero joint friction
+  joint0->setCoulombFriction(0, 0.01);
+  joint1->setCoulombFriction(0, 0.01);
   for (int i = 0; i < nSteps; i++)
   {
     joint0->setForce(0, -0.1);
