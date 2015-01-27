@@ -1,5 +1,7 @@
 var classdart_1_1constraint_1_1ContactConstraint =
 [
+    [ "ContactConstraint", "d4/d18/classdart_1_1constraint_1_1ContactConstraint.html#afc399985fd83a9fdacfdf837f5540770", null ],
+    [ "ContactConstraint", "d4/d18/classdart_1_1constraint_1_1ContactConstraint.html#a66bca42c356f4abf4c2ad9aed72e6b33", null ],
     [ "~ContactConstraint", "d4/d18/classdart_1_1constraint_1_1ContactConstraint.html#aaf3c7a8112196bbf7ac789993fe1327f", null ],
     [ "applyImpulse", "d4/d18/classdart_1_1constraint_1_1ContactConstraint.html#a3775be2587ea337ce39eab9b25547e73", null ],
     [ "applyUnitImpulse", "d4/d18/classdart_1_1constraint_1_1ContactConstraint.html#a502f4146a4053264f48ee9f05ce25277", null ],

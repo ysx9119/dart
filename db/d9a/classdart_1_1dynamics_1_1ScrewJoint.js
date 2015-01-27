@@ -3,7 +3,6 @@ var classdart_1_1dynamics_1_1ScrewJoint =
     [ "ScrewJoint", "db/d9a/classdart_1_1dynamics_1_1ScrewJoint.html#ac395bf58e7c60035d1a30793d2937429", null ],
     [ "~ScrewJoint", "db/d9a/classdart_1_1dynamics_1_1ScrewJoint.html#a349cb15096925f3c8627e45f113b8827", null ],
     [ "getAxis", "db/d9a/classdart_1_1dynamics_1_1ScrewJoint.html#a8ee69b5728c648f1410f03475e71525a", null ],
-    [ "getBodyConstraintWrench", "db/d9a/classdart_1_1dynamics_1_1ScrewJoint.html#a05c520f907cadc027745cdc3574d8de2", null ],
     [ "getPitch", "db/d9a/classdart_1_1dynamics_1_1ScrewJoint.html#a3d91a2c1334d271af6cfe07e2b2a8e53", null ],
     [ "setAxis", "db/d9a/classdart_1_1dynamics_1_1ScrewJoint.html#afe56727d45b40d589641249207be0c68", null ],
     [ "setPitch", "db/d9a/classdart_1_1dynamics_1_1ScrewJoint.html#af8dcfdeac0e9b863e2280e6c7dc2ae84", null ],

@@ -1,5 +1,7 @@
 var classdart_1_1constraint_1_1SoftContactConstraint =
 [
+    [ "SoftContactConstraint", "d4/d23/classdart_1_1constraint_1_1SoftContactConstraint.html#abec7473423d33f5020b9070fa28eea25", null ],
+    [ "SoftContactConstraint", "d4/d23/classdart_1_1constraint_1_1SoftContactConstraint.html#ae71f85a57f40d8a74d8cf5a91d8fc763", null ],
     [ "~SoftContactConstraint", "d4/d23/classdart_1_1constraint_1_1SoftContactConstraint.html#a3527295292088e8d0bdfe5de85c20e73", null ],
     [ "applyImpulse", "d4/d23/classdart_1_1constraint_1_1SoftContactConstraint.html#afc4bf02b761fa6813984f21cf43e7a85", null ],
     [ "applyUnitImpulse", "d4/d23/classdart_1_1constraint_1_1SoftContactConstraint.html#a5ae11cdaaa4da575bbbea677d8c989dd", null ],
@@ -15,7 +17,8 @@ var classdart_1_1constraint_1_1SoftContactConstraint =
     [ "getTangentBasisMatrixODE", "d4/d23/classdart_1_1constraint_1_1SoftContactConstraint.html#a946f65bb672d46b6f0e62a4160cc0e4a", null ],
     [ "getVelocityChange", "d4/d23/classdart_1_1constraint_1_1SoftContactConstraint.html#adf23882261275d46f078496430df5838", null ],
     [ "isActive", "d4/d23/classdart_1_1constraint_1_1SoftContactConstraint.html#ad7fee406ef32001d2fc1577a73fabc12", null ],
-    [ "selectCollidingPointMass", "d4/d23/classdart_1_1constraint_1_1SoftContactConstraint.html#a62160516992649ea41bf0024347cea3f", null ],
+    [ "selectCollidingPointMass", "d4/d23/classdart_1_1constraint_1_1SoftContactConstraint.html#ab5aea21d7fcfaed23a3bbdc8ac5063f3", null ],
+    [ "selectCollidingPointMass", "d4/d23/classdart_1_1constraint_1_1SoftContactConstraint.html#a457ba2fd482fa1638ecd009ede93abf4", null ],
     [ "setConstraintForceMixing", "d4/d23/classdart_1_1constraint_1_1SoftContactConstraint.html#ab3cc8e34e362f72cab34ea27121ab1d2", null ],
     [ "setErrorAllowance", "d4/d23/classdart_1_1constraint_1_1SoftContactConstraint.html#af08cfdd7737da81a9ba352d10e1ad5ef", null ],
     [ "setErrorReductionParameter", "d4/d23/classdart_1_1constraint_1_1SoftContactConstraint.html#a8e3a0bcfd86cedf0c6fb4f3e20104977", null ],

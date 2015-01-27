@@ -1,7 +1,9 @@
 var NAVTREE =
 [
   [ "DART", "index.html", [
-    [ "Dynamic Animation and Robotics Toolkits", "index.html", null ],
+    [ "DART - Dynamic Animation and Robotics Toolkits", "index.html", [
+      [ "Introduction", "index.html#intro", null ]
+    ] ],
     [ "Todo List", "dd/da0/todo.html", null ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
@@ -45,25 +47,26 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/dce/classdart_1_1collision_1_1FCLCollisionDetector.html#a21016049c1f32c5683da660ef35a40cd",
-"d2/ddf/lodepng_8h.html#a533d58c161de45096b83c44bbaa95e93",
-"d3/d73/classdart_1_1dynamics_1_1CylinderShape.html#a1873b2df9f8725f197ccb15d61efa452",
-"d4/d57/classdart_1_1constraint_1_1DantzigLCPSolver.html",
-"d5/d2e/classdart_1_1dynamics_1_1BodyNode.html#aeacf23fdcb854dd7b0ae2c9ca74507aa",
-"d5/d84/matrix_8cpp.html#af09d7072414c33ddeb00dd4f1b68682b",
-"d6/dc0/classdart_1_1collision_1_1BulletCollisionNode.html#a59c5e02df3932a79e508f2ee1cbd2f3c",
-"d7/d33/classdart_1_1dynamics_1_1SingleDofJoint.html#ac8ff31cae90466a8ebb16d3f622550cd",
-"d8/d3c/classdart_1_1integration_1_1RK4Integrator.html",
-"d9/dda/classdart_1_1planning_1_1LinearPathSegment.html#ac2e8a480f96178c658234beaf8bb9f05",
-"da/ddb/classdart_1_1renderer_1_1RenderInterface.html#a59aefadbb2ca29b9c9ad2e086bfb51ef",
-"db/d9a/classdart_1_1dynamics_1_1ScrewJoint.html#af8dcfdeac0e9b863e2280e6c7dc2ae84",
-"dc/ddb/classdart_1_1optimizer_1_1IpoptSolver.html#aedd686fe69a89653c40fcee763de7938",
-"dd/df4/matrix_8h.html#af09d7072414c33ddeb00dd4f1b68682b",
-"df/dbc/classdart_1_1optimizer_1_1Problem.html#ab93784216b85c044d6d2a6a38d36aaca"
+"d1/db9/PGSLCPSolver_8cpp.html#a7f8d7fb96da573afb60cada093143fb4",
+"d2/ddf/lodepng_8h.html#a14a4dc4c26e03acb5ab36880aacbd85a",
+"d3/d19/classdart_1_1dynamics_1_1Skeleton.html#ab87eb505caa8e482baf5f216ea8a896a",
+"d4/d23/classdart_1_1constraint_1_1SoftContactConstraint.html#a5ae11cdaaa4da575bbbea677d8c989dd",
+"d5/d2e/classdart_1_1dynamics_1_1BodyNode.html#a72b3c7f939b667861cb6c3342c8977af",
+"d5/d55/classdart_1_1dynamics_1_1PointMass.html#acc85afcbd17949e2846415f061911460",
+"d6/d5b/classdart_1_1dynamics_1_1Joint.html#a7e7b2480982fec7911e35c1fba5a88e5",
+"d6/df6/structdLCP.html#a8d2ee24665a18974d9c44f85314e9c68",
+"d7/d5f/misc_8cpp.html#a6c509fb4e134251f819453542517f345",
+"d8/da3/singletondart_1_1dynamics_1_1MultiDofJoint.html#a3aa632b638c4c6ff014b0682b55ff41c",
+"d9/d4f/classdart_1_1dynamics_1_1PlaneShape.html#a7c230525392881caca21dfe584c71c7d",
+"da/ddb/classdart_1_1renderer_1_1RenderInterface.html#aadec9f50441c0302e2fef67d8559f4c9",
+"db/d77/classdart_1_1dynamics_1_1ZeroDofJoint.html#afaca58018997d1d6b687743d86d158ff",
+"dc/d8d/classdart_1_1dynamics_1_1TranslationalJoint.html#a62e0808f268515b0941de5edb559b826",
+"dd/dc0/lodepng_8cpp.html#a3cfe255ed4a1264dafcdb689a11cbe66",
+"dd/df4/matrix_8h.html#aacf50c130f37a00c24873704fecee30f",
+"df/d29/classdart_1_1constraint_1_1ConstraintBase.html#a35d0145b5d67a0fb1e9f3fc972795596",
+"globals_e.html"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
 var SYNCONMSG = 'click to disable panel synchronisation';
 var SYNCOFFMSG = 'click to enable panel synchronisation';
 var navTreeSubIndices = new Array();
@@ -88,6 +91,21 @@ function stripPath2(uri)
   return m ? uri.substring(i-6) : s;
 }
 
+function hashValue()
+{
+  return $(location).attr('hash').substring(1).replace(/[^\w\-]/g,'');
+}
+
+function hashUrl()
+{
+  return '#'+hashValue();
+}
+
+function pathName()
+{
+  return $(location).attr('pathname').replace(/[^-A-Za-z0-9+&@#/%?=~_|!:,.;\(\)]/g, '');
+}
+
 function localStorageSupported()
 {
   try {
@@ -110,7 +128,7 @@ function deleteLink()
 {
   if (localStorageSupported()) {
     window.localStorage.setItem('navpath','');
-  } 
+  }
 }
 
 function cachedLink()
@@ -182,11 +200,13 @@ var animationInProgress = false;
 function gotoAnchor(anchor,aname,updateLocation)
 {
   var pos, docContent = $('#doc-content');
-  if (anchor.parent().attr('class')=='memItemLeft' ||
-      anchor.parent().attr('class')=='fieldtype' ||
-      anchor.parent().is(':header')) 
+  var ancParent = $(anchor.parent());
+  if (ancParent.hasClass('memItemLeft') ||
+      ancParent.hasClass('fieldname') ||
+      ancParent.hasClass('fieldtype') ||
+      ancParent.is(':header'))
   {
-    pos = anchor.parent().position().top;
+    pos = ancParent.position().top;
   } else if (anchor.position()) {
     pos = anchor.position().top;
   }
@@ -244,7 +264,7 @@ function newNode(o, po, text, link, childrenData, lastNode)
     a.className = stripPath(link.replace('#',':'));
     if (link.indexOf('#')!=-1) {
       var aname = '#'+link.split('#')[1];
-      var srcPage = stripPath($(location).attr('pathname'));
+      var srcPage = stripPath(pathName());
       var targetPage = stripPath(link.split('#')[0]);
       a.href = srcPage!=targetPage ? url : "javascript:void(0)"; 
       a.onclick = function(){
@@ -338,14 +358,13 @@ function glowEffect(n,duration)
 
 function highlightAnchor()
 {
-  var aname = $(location).attr('hash');
+  var aname = hashUrl();
   var anchor = $(aname);
   if (anchor.parent().attr('class')=='memItemLeft'){
-    var rows = $('.memberdecls tr[class$="'+
-               window.location.hash.substring(1)+'"]');
+    var rows = $('.memberdecls tr[class$="'+hashValue()+'"]');
     glowEffect(rows.children(),300); // member without details
-  } else if (anchor.parents().slice(2).prop('tagName')=='TR') {
-    glowEffect(anchor.parents('div.memitem'),1000); // enum value
+  } else if (anchor.parent().attr('class')=='fieldname'){
+    glowEffect(anchor.parent().parent(),1000); // enum value
   } else if (anchor.parent().attr('class')=='fieldtype'){
     glowEffect(anchor.parent().parent(),1000); // struct field
   } else if (anchor.parent().is(":header")) {
@@ -360,7 +379,7 @@ function selectAndHighlight(hash,n)
 {
   var a;
   if (hash) {
-    var link=stripPath($(location).attr('pathname'))+':'+hash.substring(1);
+    var link=stripPath(pathName())+':'+hash.substring(1);
     a=$('.item a[class$="'+link+'"]');
   }
   if (a && a.length) {
@@ -471,14 +490,13 @@ function navTo(o,root,hash,relpath)
   if (link) {
     var parts = link.split('#');
     root = parts[0];
-    if (parts.length>1) hash = '#'+parts[1];
+    if (parts.length>1) hash = '#'+parts[1].replace(/[^\w\-]/g,'');
     else hash='';
   }
   if (hash.match(/^#l\d+$/)) {
     var anchor=$('a[name='+hash.substring(1)+']');
     glowEffect(anchor.parent(),1000); // line number
     hash=''; // strip line number anchors
-    //root=root.replace(/_source\./,'.'); // source link to doc link
   }
   var url=root+hash;
   var i=-1;
@@ -512,7 +530,7 @@ function toggleSyncButton(relpath)
   if (navSync.hasClass('sync')) {
     navSync.removeClass('sync');
     showSyncOff(navSync,relpath);
-    storeLink(stripPath2($(location).attr('pathname'))+$(location).attr('hash'));
+    storeLink(stripPath2(pathName())+hashUrl());
   } else {
     navSync.addClass('sync');
     showSyncOn(navSync,relpath);
@@ -552,7 +570,7 @@ function initNavTree(toroot,relpath)
   }
 
   $(window).load(function(){
-    navTo(o,toroot,window.location.hash,relpath);
+    navTo(o,toroot,hashUrl(),relpath);
     showRoot();
   });
 
@@ -560,21 +578,20 @@ function initNavTree(toroot,relpath)
      if (window.location.hash && window.location.hash.length>1){
        var a;
        if ($(location).attr('hash')){
-         var clslink=stripPath($(location).attr('pathname'))+':'+
-                               $(location).attr('hash').substring(1);
-         a=$('.item a[class$="'+clslink+'"]');
+         var clslink=stripPath(pathName())+':'+hashValue();
+         a=$('.item a[class$="'+clslink.replace(/</g,'\\3c ')+'"]');
        }
        if (a==null || !$(a).parent().parent().hasClass('selected')){
          $('.item').removeClass('selected');
          $('.item').removeAttr('id');
        }
-       var link=stripPath2($(location).attr('pathname'));
-       navTo(o,link,$(location).attr('hash'),relpath);
+       var link=stripPath2(pathName());
+       navTo(o,link,hashUrl(),relpath);
      } else if (!animationInProgress) {
        $('#doc-content').scrollTop(0);
        $('.item').removeClass('selected');
        $('.item').removeAttr('id');
-       navTo(o,toroot,window.location.hash,relpath);
+       navTo(o,toroot,hashUrl(),relpath);
      }
   })
 }

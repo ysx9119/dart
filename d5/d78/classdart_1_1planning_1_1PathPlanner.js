@@ -5,7 +5,7 @@ var classdart_1_1planning_1_1PathPlanner =
     [ "~PathPlanner", "d5/d78/classdart_1_1planning_1_1PathPlanner.html#a0dbc01a9ef0611103becc7510df20691", null ],
     [ "planBidirectionalRrt", "d5/d78/classdart_1_1planning_1_1PathPlanner.html#a150cca7308767573e954b4a53ddc19fd", null ],
     [ "planPath", "d5/d78/classdart_1_1planning_1_1PathPlanner.html#a9274294ccba1cc5da1de333b30e29071", null ],
-    [ "planPath", "d5/d78/classdart_1_1planning_1_1PathPlanner.html#ac22c1098b917358b0a08905dd1902514", null ],
+    [ "planPath", "d5/d78/classdart_1_1planning_1_1PathPlanner.html#a1ea74ed40cf7b33e6b86c084d767985c", null ],
     [ "planSingleTreeRrt", "d5/d78/classdart_1_1planning_1_1PathPlanner.html#ad137bf4ca8ebc2f372b57ebcb446cc83", null ],
     [ "bidirectional", "d5/d78/classdart_1_1planning_1_1PathPlanner.html#aae9b3daf00efcf1ffb52bfea743473e9", null ],
     [ "connect", "d5/d78/classdart_1_1planning_1_1PathPlanner.html#ae7f2151164ab6a2f2a09fdb2241756e2", null ],

@@ -4,17 +4,12 @@ var dir_f2ed43681a1f94b8b6b590eee51c5fa9 =
     [ "BallJointConstraint.h", "d5/da0/BallJointConstraint_8h.html", [
       [ "BallJointConstraint", "d9/d4e/classdart_1_1constraint_1_1BallJointConstraint.html", "d9/d4e/classdart_1_1constraint_1_1BallJointConstraint" ]
     ] ],
-    [ "ClosedLoopConstraint.cpp", "d4/dfe/ClosedLoopConstraint_8cpp.html", null ],
-    [ "ClosedLoopConstraint.h", "d1/dd2/ClosedLoopConstraint_8h.html", null ],
     [ "ConstrainedGroup.cpp", "d5/d6e/ConstrainedGroup_8cpp.html", null ],
     [ "ConstrainedGroup.h", "da/d1b/ConstrainedGroup_8h.html", [
       [ "ConstrainedGroup", "d6/db4/classdart_1_1constraint_1_1ConstrainedGroup.html", "d6/db4/classdart_1_1constraint_1_1ConstrainedGroup" ]
     ] ],
-    [ "Constraint.cpp", "db/d66/Constraint_8cpp.html", null ],
-    [ "Constraint.h", "d3/dcf/Constraint_8h.html", [
-      [ "ConstraintInfo", "dc/d9c/structdart_1_1constraint_1_1ConstraintInfo.html", "dc/d9c/structdart_1_1constraint_1_1ConstraintInfo" ],
-      [ "Constraint", "d4/d4b/classdart_1_1constraint_1_1Constraint.html", "d4/d4b/classdart_1_1constraint_1_1Constraint" ]
-    ] ],
+    [ "ConstraintBase.cpp", "df/de2/ConstraintBase_8cpp.html", null ],
+    [ "ConstraintBase.h", "db/da5/ConstraintBase_8h.html", "db/da5/ConstraintBase_8h" ],
     [ "ConstraintSolver.cpp", "d7/dc0/ConstraintSolver_8cpp.html", null ],
     [ "ConstraintSolver.h", "da/db5/ConstraintSolver_8h.html", [
       [ "ConstraintSolver", "d6/dc9/classdart_1_1constraint_1_1ConstraintSolver.html", "d6/dc9/classdart_1_1constraint_1_1ConstraintSolver" ]
@@ -31,12 +26,16 @@ var dir_f2ed43681a1f94b8b6b590eee51c5fa9 =
     [ "JointConstraint.h", "d5/dc2/JointConstraint_8h.html", [
       [ "JointConstraint", "dc/d0c/classdart_1_1constraint_1_1JointConstraint.html", "dc/d0c/classdart_1_1constraint_1_1JointConstraint" ]
     ] ],
+    [ "JointCoulombFrictionConstraint.cpp", "d1/dfc/JointCoulombFrictionConstraint_8cpp.html", "d1/dfc/JointCoulombFrictionConstraint_8cpp" ],
+    [ "JointCoulombFrictionConstraint.h", "da/dfc/JointCoulombFrictionConstraint_8h.html", [
+      [ "JointCoulombFrictionConstraint", "dd/d61/classdart_1_1constraint_1_1JointCoulombFrictionConstraint.html", "dd/d61/classdart_1_1constraint_1_1JointCoulombFrictionConstraint" ]
+    ] ],
     [ "JointLimitConstraint.cpp", "db/d5d/JointLimitConstraint_8cpp.html", "db/d5d/JointLimitConstraint_8cpp" ],
     [ "JointLimitConstraint.h", "d3/d61/JointLimitConstraint_8h.html", [
       [ "JointLimitConstraint", "d4/dbf/classdart_1_1constraint_1_1JointLimitConstraint.html", "d4/dbf/classdart_1_1constraint_1_1JointLimitConstraint" ]
     ] ],
-    [ "LCPSolver.cpp", "d3/dd0/constraint_2LCPSolver_8cpp.html", null ],
-    [ "LCPSolver.h", "df/de6/constraint_2LCPSolver_8h.html", [
+    [ "LCPSolver.cpp", "d1/daf/LCPSolver_8cpp.html", null ],
+    [ "LCPSolver.h", "d6/d84/LCPSolver_8h.html", [
       [ "LCPSolver", "db/d6c/classdart_1_1constraint_1_1LCPSolver.html", "db/d6c/classdart_1_1constraint_1_1LCPSolver" ]
     ] ],
     [ "PGSLCPSolver.cpp", "d1/db9/PGSLCPSolver_8cpp.html", "d1/db9/PGSLCPSolver_8cpp" ],

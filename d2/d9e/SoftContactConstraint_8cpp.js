@@ -8,5 +8,6 @@ var SoftContactConstraint_8cpp =
     [ "DART_FRICTION_COEFF_THRESHOLD", "d2/d9e/SoftContactConstraint_8cpp.html#a2b0dcfb1536ff83c9edc47cedca73be6", null ],
     [ "DART_MAX_BOUNCING_VELOCITY", "d2/d9e/SoftContactConstraint_8cpp.html#ae53f26ba1a39411bfa968a3fbfeceb76", null ],
     [ "DART_MAX_ERV", "d2/d9e/SoftContactConstraint_8cpp.html#a0d31a4befde2f2b4fc67c8b48a95ca6f", null ],
-    [ "DART_RESTITUTION_COEFF_THRESHOLD", "d2/d9e/SoftContactConstraint_8cpp.html#a35d6849d333ec9b11821ef7e55207bac", null ]
+    [ "DART_RESTITUTION_COEFF_THRESHOLD", "d2/d9e/SoftContactConstraint_8cpp.html#a35d6849d333ec9b11821ef7e55207bac", null ],
+    [ "selectCollidingPointMassT", "d2/d9e/SoftContactConstraint_8cpp.html#a638541c0a4b2f8e00d73f873393ffa5f", null ]
 ];

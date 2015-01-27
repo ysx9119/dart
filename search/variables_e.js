@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['palette',['palette',['../d3/df7/structLodePNGColorMode.html#a54f0a793238009fcb95f081626fae308',1,'LodePNGColorMode']]],
+  ['palette',['palette',['../de/dbd/structColorProfile.html#acf805bc910a23088e71d4cb04dcaf3df',1,'ColorProfile::palette()'],['../d3/df7/structLodePNGColorMode.html#a54f0a793238009fcb95f081626fae308',1,'LodePNGColorMode::palette()']]],
   ['palettesize',['palettesize',['../d3/df7/structLodePNGColorMode.html#a407557f056168682d9319aeb60866dcc',1,'LodePNGColorMode']]],
   ['parentvector',['parentVector',['../d7/dd6/classdart_1_1planning_1_1RRT.html#a22c4713758198d9608229d2ea18d6bf5',1,'dart::planning::RRT']]],
   ['path',['path',['../d8/ddd/classdart_1_1planning_1_1PathFollowingTrajectory.html#a01455eb28a2210e6abf2496a2c300b86',1,'dart::planning::PathFollowingTrajectory']]],

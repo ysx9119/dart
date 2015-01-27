@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['last_5flength_5fcode_5findex',['LAST_LENGTH_CODE_INDEX',['../dd/dc0/lodepng_8cpp.html#adf9597781d7175fdee0b2466e6e462e7',1,'lodepng.cpp']]],
+  ['lazy_5fmatching',['LAZY_MATCHING',['../dd/dc0/lodepng_8cpp.html#ab9517cd77a8f1e378aa5f33f0d22309e',1,'lodepng.cpp']]],
   ['lcp_5fpgs_5foption_5fdefault_5feps_5fdivide',['LCP_PGS_OPTION_DEFAULT_EPS_DIVIDE',['../d1/db9/PGSLCPSolver_8cpp.html#a3fcb206991a0a45b4b6f8b2aab8a37fc',1,'PGSLCPSolver.cpp']]],
   ['lcp_5fpgs_5foption_5fdefault_5feps_5fea',['LCP_PGS_OPTION_DEFAULT_EPS_EA',['../d1/db9/PGSLCPSolver_8cpp.html#a55644215c3cd9ecd81e3846bc1f919a8',1,'PGSLCPSolver.cpp']]],
   ['lcp_5fpgs_5foption_5fdefault_5feps_5fresidual',['LCP_PGS_OPTION_DEFAULT_EPS_RESIDUAL',['../d1/db9/PGSLCPSolver_8cpp.html#a2ececabb62c8e647230b12d7a1f55223',1,'PGSLCPSolver.cpp']]],

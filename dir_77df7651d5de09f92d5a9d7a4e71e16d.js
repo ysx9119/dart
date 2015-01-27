@@ -6,6 +6,7 @@ var dir_77df7651d5de09f92d5a9d7a4e71e16d =
     [ "GlutWindow.h", "d6/daf/GlutWindow_8h.html", [
       [ "GlutWindow", "d1/d33/classdart_1_1gui_1_1GlutWindow.html", "d1/d33/classdart_1_1gui_1_1GlutWindow" ]
     ] ],
+    [ "Jitter.cpp", "d0/dc2/Jitter_8cpp.html", null ],
     [ "Jitter.h", "df/d80/Jitter_8h.html", "df/d80/Jitter_8h" ],
     [ "lodepng.cpp", "dd/dc0/lodepng_8cpp.html", "dd/dc0/lodepng_8cpp" ],
     [ "lodepng.h", "d2/ddf/lodepng_8h.html", "d2/ddf/lodepng_8h" ],

@@ -18,7 +18,7 @@ var searchData=
   ['mousemove',['mouseMove',['../d1/d33/classdart_1_1gui_1_1GlutWindow.html#a265cd2ef52631f58c9d137ec6f5708c6',1,'dart::gui::GlutWindow']]],
   ['mouseonsphere',['mouseOnSphere',['../de/d9b/classdart_1_1gui_1_1Trackball.html#a9c5665b4a32f0fe6168401415cb8e559',1,'dart::gui::Trackball']]],
   ['move',['move',['../d1/d33/classdart_1_1gui_1_1GlutWindow.html#a403680fb29f83b8c1db9dfc72335e880',1,'dart::gui::GlutWindow']]],
-  ['multidofjoint',['MultiDofJoint',['../da/d30/classdart_1_1dynamics_1_1MultiDofJoint.html#a7856743b1e86e93f9738251a3e830bff',1,'dart::dynamics::MultiDofJoint']]],
+  ['multidofjoint',['MultiDofJoint',['../d8/da3/singletondart_1_1dynamics_1_1MultiDofJoint.html#a7856743b1e86e93f9738251a3e830bff',1,'dart::dynamics::MultiDofJoint']]],
   ['multifunction',['MultiFunction',['../d5/d58/classdart_1_1optimizer_1_1MultiFunction.html#af76236970e4d820a8d66ab23df4ec8b0',1,'dart::optimizer::MultiFunction']]],
   ['myfree',['myfree',['../dd/dc0/lodepng_8cpp.html#a0014b6df552d60eae2c14092ef9023b1',1,'lodepng.cpp']]],
   ['mymalloc',['mymalloc',['../dd/dc0/lodepng_8cpp.html#ac64c2cc5229ba12acda614f7d2f107e1',1,'lodepng.cpp']]],

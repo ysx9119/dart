@@ -16,6 +16,11 @@ var dir_ce1d750ba4a7950ac0659613f96015b8 =
     [ "CylinderShape.h", "d2/d73/CylinderShape_8h.html", [
       [ "CylinderShape", "d3/d73/classdart_1_1dynamics_1_1CylinderShape.html", "d3/d73/classdart_1_1dynamics_1_1CylinderShape" ]
     ] ],
+    [ "DegreeOfFreedom.cpp", "d4/d56/DegreeOfFreedom_8cpp.html", null ],
+    [ "DegreeOfFreedom.h", "d9/dc4/DegreeOfFreedom_8h.html", [
+      [ "MultiDofJoint", "d8/da3/singletondart_1_1dynamics_1_1MultiDofJoint.html", "d8/da3/singletondart_1_1dynamics_1_1MultiDofJoint" ],
+      [ "DegreeOfFreedom", "de/db7/classdart_1_1dynamics_1_1DegreeOfFreedom.html", "de/db7/classdart_1_1dynamics_1_1DegreeOfFreedom" ]
+    ] ],
     [ "EllipsoidShape.cpp", "d0/d4f/EllipsoidShape_8cpp.html", null ],
     [ "EllipsoidShape.h", "de/d25/EllipsoidShape_8h.html", [
       [ "EllipsoidShape", "db/da3/classdart_1_1dynamics_1_1EllipsoidShape.html", "db/da3/classdart_1_1dynamics_1_1EllipsoidShape" ]
@@ -41,7 +46,7 @@ var dir_ce1d750ba4a7950ac0659613f96015b8 =
       [ "MeshShape", "d0/d2d/classdart_1_1dynamics_1_1MeshShape.html", "d0/d2d/classdart_1_1dynamics_1_1MeshShape" ]
     ] ],
     [ "MultiDofJoint.h", "d4/d92/MultiDofJoint_8h.html", [
-      [ "MultiDofJoint", "da/d30/classdart_1_1dynamics_1_1MultiDofJoint.html", "da/d30/classdart_1_1dynamics_1_1MultiDofJoint" ]
+      [ "MultiDofJoint", "d8/da3/singletondart_1_1dynamics_1_1MultiDofJoint.html", "d8/da3/singletondart_1_1dynamics_1_1MultiDofJoint" ]
     ] ],
     [ "PlanarJoint.cpp", "d5/d9e/PlanarJoint_8cpp.html", null ],
     [ "PlanarJoint.h", "de/d0a/PlanarJoint_8h.html", [
@@ -75,11 +80,8 @@ var dir_ce1d750ba4a7950ac0659613f96015b8 =
     [ "SingleDofJoint.h", "db/df8/SingleDofJoint_8h.html", [
       [ "SingleDofJoint", "d7/d33/classdart_1_1dynamics_1_1SingleDofJoint.html", "d7/d33/classdart_1_1dynamics_1_1SingleDofJoint" ]
     ] ],
-    [ "Skeleton.cpp", "d2/d7c/Skeleton_8cpp.html", null ],
-    [ "Skeleton.h", "d1/ded/Skeleton_8h.html", [
-      [ "GenCoordInfo", "d8/d85/structdart_1_1dynamics_1_1GenCoordInfo.html", "d8/d85/structdart_1_1dynamics_1_1GenCoordInfo" ],
-      [ "Skeleton", "d3/d19/classdart_1_1dynamics_1_1Skeleton.html", "d3/d19/classdart_1_1dynamics_1_1Skeleton" ]
-    ] ],
+    [ "Skeleton.cpp", "d2/d7c/Skeleton_8cpp.html", "d2/d7c/Skeleton_8cpp" ],
+    [ "Skeleton.h", "d1/ded/Skeleton_8h.html", "d1/ded/Skeleton_8h" ],
     [ "SoftBodyNode.cpp", "d0/d22/SoftBodyNode_8cpp.html", null ],
     [ "SoftBodyNode.h", "d0/d9b/SoftBodyNode_8h.html", "d0/d9b/SoftBodyNode_8h" ],
     [ "SoftMeshShape.cpp", "d9/de2/SoftMeshShape_8cpp.html", null ],

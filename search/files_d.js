@@ -7,6 +7,7 @@ var searchData=
   ['pathfollowingtrajectory_2ecpp',['PathFollowingTrajectory.cpp',['../de/d40/PathFollowingTrajectory_8cpp.html',1,'']]],
   ['pathfollowingtrajectory_2eh',['PathFollowingTrajectory.h',['../d2/d74/PathFollowingTrajectory_8h.html',1,'']]],
   ['pathplanner_2eh',['PathPlanner.h',['../d4/d7c/PathPlanner_8h.html',1,'']]],
+  ['paths_2eh',['Paths.h',['../d4/d6c/Paths_8h.html',1,'']]],
   ['pathshortener_2ecpp',['PathShortener.cpp',['../d9/db9/PathShortener_8cpp.html',1,'']]],
   ['pathshortener_2eh',['PathShortener.h',['../dd/d27/PathShortener_8h.html',1,'']]],
   ['pgslcpsolver_2ecpp',['PGSLCPSolver.cpp',['../d1/db9/PGSLCPSolver_8cpp.html',1,'']]],

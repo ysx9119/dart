@@ -17,6 +17,7 @@ var Parser_8cpp =
     [ "getValueVector3d", "dc/df5/Parser_8cpp.html#a481966f03ae3e71fdc05b780ffbc1290", null ],
     [ "getValueVector3i", "dc/df5/Parser_8cpp.html#aa3c7147db1299ae932ef30f4be0604a6", null ],
     [ "getValueVector6d", "dc/df5/Parser_8cpp.html#ac27f0a57398cc8c5bab9370d9ef8e326", null ],
+    [ "hasAttribute", "dc/df5/Parser_8cpp.html#a026d75f4787ac5d023b0bcca062005c2", null ],
     [ "hasElement", "dc/df5/Parser_8cpp.html#a0ae82898f2f145b583baf7ed0685fd08", null ],
     [ "openXMLFile", "dc/df5/Parser_8cpp.html#a58b9989f820bb5e26397ca32db1d77c0", null ],
     [ "toBool", "dc/df5/Parser_8cpp.html#a659485a1e300a826fd942f2c70682cc9", null ],

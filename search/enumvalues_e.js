@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vslack',['Vslack',['../d2/d9b/classdart_1_1optimizer_1_1snopt_1_1SnoptInterface.html#a0d76878f36b20c37f7807771d5652538a60fb3ca2a1f7c6d0bf0bb738746bbc34',1,'dart::optimizer::snopt::SnoptInterface']]]
+  ['userstop',['UserStop',['../d2/d9b/classdart_1_1optimizer_1_1snopt_1_1SnoptInterface.html#a1c337f54c6162498c26908088dda78c4a6205954ad8b806747ddc4e7beb80c2cc',1,'dart::optimizer::snopt::SnoptInterface']]]
 ];
