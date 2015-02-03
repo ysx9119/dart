@@ -83,6 +83,7 @@ bool FCLMeshCollisionDetector::detectCollision(bool _checkAllCollisions,
   for (size_t i = 0; i < mCollisionNodes.size(); ++i)
     static_cast<FCLMeshCollisionNode*>(mCollisionNodes[i])->updateShape();
 
+
   // Clear previous contacts
   mContacts.clear();
 

@@ -43,6 +43,7 @@
 #include "dart/dynamics/Skeleton.h"
 #include "dart/dynamics/FreeJoint.h"
 #include "dart/dynamics/BoxShape.h"
+#include "dart/dynamics/MeshShape.h"
 #include "dart/utils/Paths.h"
 #include "dart/utils/SkelParser.h"
 
@@ -57,17 +58,20 @@ MyWindow::~MyWindow() {
 void MyWindow::timeStepping() {
   //mWorld->getSkeleton(1)->getBodyNode(0)->addExtForce(mForce);
 
+
   // remove skeleton
   if (mWorld->getNumSkeletons() > 1) {
     mWorld->removeSkeleton(mWorld->getSkeleton(0));
     mWorld->removeSkeleton(mWorld->getSkeleton(1));
   }
   // add new skeleton
-  std::string filename = DART_DATA_PATH"/skel/rigidclothpatch.skel";
-  dart::dynamics::Skeleton* patch1 = dart::utils::SkelParser::readSkeleton(filename);
+  std::string filename1 = DART_DATA_PATH"/skel/rigidclothpatch1.skel";
+  dart::dynamics::Skeleton* patch1 = dart::utils::SkelParser::readSkeleton(filename1);
   mWorld->addSkeleton(patch1);
-  dart::dynamics::Skeleton* patch2 = dart::utils::SkelParser::readSkeleton(filename);
+  std::string filename2 = DART_DATA_PATH"/skel/rigidclothpatch2.skel";
+  dart::dynamics::Skeleton* patch2 = dart::utils::SkelParser::readSkeleton(filename2);
   mWorld->addSkeleton(patch2);
+
   // set dimension
   Eigen::Vector3d dim1(0.0160333, 0.01, 0.00802094);
   dart::dynamics::BoxShape* colShape1 = (dart::dynamics::BoxShape*)mWorld->getSkeleton(0)->getBodyNode(0)->getCollisionShape(0);
@@ -90,8 +94,9 @@ void MyWindow::timeStepping() {
   mWorld->getSkeleton(1)->setState(state2);
   mWorld->getSkeleton(1)->computeForwardKinematics(true,false,false);
 
+
   mWorld->step();
-  mForce /= 2.0;
+//  mForce /= 2.0;
 }
 
 void MyWindow::drawSkels() {

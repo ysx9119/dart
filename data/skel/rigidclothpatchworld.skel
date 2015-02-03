@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+<skel version="1.0">
+    <world name="world 1">
+        <physics>
+            <time_step>0.001</time_step>
+            <gravity>0 -9.81 0</gravity>
+        </physics>
+        
+        <skeleton name="patch_skeleton1">
+            <body name="patch1">
+                <transformation>0 0 0 0 0 0</transformation>
+                <inertia>
+                    <mass>0.01</mass>
+                    <offset>0 0 0</offset>
+                </inertia>
+                <visualization_shape>
+                    <transformation>0 0 0 0 0 0</transformation>
+                    <geometry>
+                        <box>
+                            <size>0.0160333 0.01 0.00802094</size>
+                        </box>
+                    </geometry>
+                    <color>0.8 0.3 0.3</color>
+                </visualization_shape>
+                <collision_shape>
+                    <transformation>0 0 0 0 0 0</transformation>
+                    <geometry>
+                        <box>
+                            <size>0.0147092 0.01 0.0094610</size>
+                        </box>
+                    </geometry>
+                </collision_shape>                                
+            </body>
+            
+            <joint type="free" name="joint1">
+                <parent>world</parent>
+                <child>patch1</child>
+            </joint>
+        </skeleton>	 
+        
+        <skeleton name="patch_skeleton2">
+            <body name="patch2">
+                <transformation>0 0 0 0 0 0</transformation>
+                <inertia>
+                    <mass>0.01</mass>
+                    <offset>0 0 0</offset>
+                </inertia>
+                <visualization_shape>
+                    <transformation>0 0 0 0 0 0</transformation>
+                    <geometry>
+                        <box>
+                            <size>0.0160333 0.01 0.00802094</size>
+                        </box>
+                    </geometry>
+                    <color>0.8 0.3 0.3</color>
+                </visualization_shape>
+                <collision_shape>
+                    <transformation>0 0 0 0 0 0</transformation>
+                    <geometry>
+                        <box>
+                            <size>0.0147092 0.01 0.0094610</size>
+                        </box>
+                    </geometry>
+                </collision_shape>                                
+            </body>
+            
+            <joint type="free" name="joint2">
+                <parent>world</parent>
+                <child>patch2</child>
+            </joint>
+        </skeleton>	 
+
+    </world>
+</skel>

@@ -45,15 +45,30 @@
 #include "dart/collision/dart/DARTCollisionDetector.h"
 #include "dart/collision/fcl_mesh/FCLMeshCollisionDetector.h"
 #include "apps/rigidCubes/MyWindow.h"
+#include "dart/dynamics/Skeleton.h"
 
 int main(int argc, char* argv[]) {
   // create and initialize the world
+//  dart::simulation::World *myWorld
+//      = dart::utils::SkelParser::readWorld(
+//          DART_DATA_PATH"/skel/rigidclothpatchworld.skel");
   dart::simulation::World *myWorld
       = dart::utils::SkelParser::readWorld(
           DART_DATA_PATH"/skel/empty_world.skel");
   assert(myWorld != NULL);
-  Eigen::Vector3d gravity(0.0, -9.81, 0.0);
+  Eigen::Vector3d gravity(0.0, 0.0, 0.0);
   myWorld->setGravity(gravity);
+
+  /*
+  Eigen::VectorXd state1(12);
+  state1 << -1.43395,  -1.24326,  0.607935,  0.722328, 0.0256898,  0.154474, 0, 0, 0, 0, 0, 0;
+  myWorld->getSkeleton(0)->setState(state1);
+  myWorld->getSkeleton(0)->computeForwardKinematics(true,false,false);
+  Eigen::VectorXd state2(12);
+  state2 << -1.17932, -0.666113,  0.568555,  0.639145, 0.0779996,  0.312032, 0, 0, 0, 0, 0, 0;
+  myWorld->getSkeleton(1)->setState(state2);
+  myWorld->getSkeleton(1)->computeForwardKinematics(true,false,false);
+  */
 
   myWorld->getConstraintSolver()->setCollisionDetector(new dart::collision::FCLMeshCollisionDetector());
 
