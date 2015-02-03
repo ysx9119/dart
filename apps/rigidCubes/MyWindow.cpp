@@ -43,6 +43,8 @@
 #include "dart/dynamics/Skeleton.h"
 #include "dart/dynamics/FreeJoint.h"
 #include "dart/dynamics/BoxShape.h"
+#include "dart/utils/Paths.h"
+#include "dart/utils/SkelParser.h"
 
 MyWindow::MyWindow()
   : SimWindow() {
@@ -53,7 +55,41 @@ MyWindow::~MyWindow() {
 }
 
 void MyWindow::timeStepping() {
-  mWorld->getSkeleton(1)->getBodyNode(0)->addExtForce(mForce);
+  //mWorld->getSkeleton(1)->getBodyNode(0)->addExtForce(mForce);
+
+  // remove skeleton
+  if (mWorld->getNumSkeletons() > 1) {
+    mWorld->removeSkeleton(mWorld->getSkeleton(0));
+    mWorld->removeSkeleton(mWorld->getSkeleton(1));
+  }
+  // add new skeleton
+  std::string filename = DART_DATA_PATH"/skel/rigidclothpatch.skel";
+  dart::dynamics::Skeleton* patch1 = dart::utils::SkelParser::readSkeleton(filename);
+  mWorld->addSkeleton(patch1);
+  dart::dynamics::Skeleton* patch2 = dart::utils::SkelParser::readSkeleton(filename);
+  mWorld->addSkeleton(patch2);
+  // set dimension
+  Eigen::Vector3d dim1(0.0160333, 0.01, 0.00802094);
+  dart::dynamics::BoxShape* colShape1 = (dart::dynamics::BoxShape*)mWorld->getSkeleton(0)->getBodyNode(0)->getCollisionShape(0);
+  colShape1->setSize(dim1);
+  dart::dynamics::BoxShape* visShape1 = (dart::dynamics::BoxShape*)mWorld->getSkeleton(0)->getBodyNode(0)->getVisualizationShape(0);
+  visShape1->setSize(dim1);
+
+  Eigen::Vector3d dim2(0.0147092, 0.01, 0.0094610);
+  dart::dynamics::BoxShape* colShape2 = (dart::dynamics::BoxShape*)mWorld->getSkeleton(1)->getBodyNode(0)->getCollisionShape(0);
+  colShape2->setSize(dim2);
+  dart::dynamics::BoxShape* visShape2 = (dart::dynamics::BoxShape*)mWorld->getSkeleton(1)->getBodyNode(0)->getVisualizationShape(0);
+  visShape2->setSize(dim2);
+
+  Eigen::VectorXd state1(12);
+  state1 << -1.43395,  -1.24326,  0.607935,  0.722328, 0.0256898,  0.154474, 0, 0, 0, 0, 0, 0;
+  mWorld->getSkeleton(0)->setState(state1);
+  mWorld->getSkeleton(0)->computeForwardKinematics(true,false,false);
+  Eigen::VectorXd state2(12);
+  state2 << -1.17932, -0.666113,  0.568555,  0.639145, 0.0779996,  0.312032, 0, 0, 0, 0, 0, 0;
+  mWorld->getSkeleton(1)->setState(state2);
+  mWorld->getSkeleton(1)->computeForwardKinematics(true,false,false);
+
   mWorld->step();
   mForce /= 2.0;
 }

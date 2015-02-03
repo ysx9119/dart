@@ -37,6 +37,7 @@
 #include "dart/collision/bullet/BulletCollisionDetector.h"
 
 #include <vector>
+#include <iostream>
 
 #include "dart/collision/bullet/BulletCollisionNode.h"
 #include "dart/dynamics/BodyNode.h"
@@ -112,15 +113,14 @@ BulletCollisionDetector::BulletCollisionDetector() : CollisionDetector()
 //  btVector3 worldAabbMax(1000, 1000, 1000);
 //  btBroadphaseInterface* broadphasePairCache =
 //      new btAxisSweep3(worldAabbMin, worldAabbMax);
+
   btBroadphaseInterface* broadphasePairCache = new btDbvtBroadphase();
   btCollisionConfiguration* collisionConfiguration =
       new btDefaultCollisionConfiguration();
   btDispatcher* dispatcher = new btCollisionDispatcher(collisionConfiguration);
-
   mBulletCollisionWorld = new btCollisionWorld(dispatcher,
                                                broadphasePairCache,
                                                collisionConfiguration);
-
   btOverlapFilterCallback* filterCallback = new CollisionFilter();
   btOverlappingPairCache* pairCache = mBulletCollisionWorld->getPairCache();
   assert(pairCache != NULL);

@@ -40,16 +40,22 @@
 #include "dart/simulation/World.h"
 #include "dart/utils/Paths.h"
 #include "dart/utils/SkelParser.h"
+#include "dart/constraint/ConstraintSolver.h"
+//#include "dart/collision/bullet/BulletCollisionDetector.h"
+#include "dart/collision/dart/DARTCollisionDetector.h"
+#include "dart/collision/fcl_mesh/FCLMeshCollisionDetector.h"
 #include "apps/rigidCubes/MyWindow.h"
 
 int main(int argc, char* argv[]) {
   // create and initialize the world
   dart::simulation::World *myWorld
       = dart::utils::SkelParser::readWorld(
-          DART_DATA_PATH"/skel/cubes.skel");
+          DART_DATA_PATH"/skel/empty_world.skel");
   assert(myWorld != NULL);
   Eigen::Vector3d gravity(0.0, -9.81, 0.0);
   myWorld->setGravity(gravity);
+
+  myWorld->getConstraintSolver()->setCollisionDetector(new dart::collision::FCLMeshCollisionDetector());
 
   // create a window and link it to the world
   MyWindow window;

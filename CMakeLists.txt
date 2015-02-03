@@ -1,3 +1,7 @@
+set(CMAKE_CXX_COMPILER "/usr/local/bin/g++-4.7")
+set(CMAKE_CC_COMPILER "/usr/bin/gcc")
+#SET(CMAKE_BUILD_TYPE Debug)
+
 cmake_minimum_required(VERSION 2.8)
 set(CMAKE_LEGACY_CYGWIN_WIN32 0)
 set(CMAKE_CXX_WARNING_LEVEL 4)

@@ -144,7 +144,7 @@ void SimWindow::draw() {
         mRI->setPenColor(Eigen::Vector3d(0.2, 0.2, 0.8));
         mRI->pushMatrix();
         glTranslated(v[0], v[1], v[2]);
-        mRI->drawEllipsoid(Eigen::Vector3d(0.02, 0.02, 0.02));
+        mRI->drawEllipsoid(Eigen::Vector3d(0.002, 0.002, 0.002));
         mRI->popMatrix();
       }
     }
