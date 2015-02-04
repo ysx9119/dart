@@ -236,8 +236,10 @@ bool CollisionDetector::isCollidable(const CollisionNode* _node1,
   if (!getPairCollidable(_node1, _node2))
     return false;
 
+  std::cout << "before node collidable" << std::endl;
   if (!bn1->isCollidable() || !bn2->isCollidable())
     return false;
+  std::cout << "after node collidable" << std::endl;
 
   if (bn1->getSkeleton() == bn2->getSkeleton())
   {

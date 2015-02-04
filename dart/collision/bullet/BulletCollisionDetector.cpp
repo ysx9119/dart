@@ -99,6 +99,8 @@ struct CollisionFilter : public btOverlapFilterCallback
       CollisionNode* cn1 = userData0->btCollNode;
       CollisionNode* cn2 = userData1->btCollNode;
 
+      std::cout << "bullet need broad" << std::endl;
+
       collide = cd->isCollidable(cn1, cn2);
     }
 
