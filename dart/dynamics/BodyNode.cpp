@@ -159,6 +159,7 @@ bool BodyNode::getGravityMode() const
 //==============================================================================
 bool BodyNode::isCollidable() const
 {
+    std::cout << "body node collidable" << std::endl;
   return mIsCollidable;
 }
 

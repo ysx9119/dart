@@ -56,9 +56,11 @@ MyWindow::~MyWindow() {
 }
 
 void MyWindow::timeStepping() {
+
+  std::cout << "time stepping" << std::endl;
   //mWorld->getSkeleton(1)->getBodyNode(0)->addExtForce(mForce);
 
-/*
+
   // remove skeleton
   if (mWorld->getNumSkeletons() > 1) {
     mWorld->removeSkeleton(mWorld->getSkeleton(0));
@@ -96,7 +98,7 @@ void MyWindow::timeStepping() {
 
   mWorld->addSkeleton(patch1);
   mWorld->addSkeleton(patch2);
-*/
+
   mWorld->step();
 //  mForce /= 2.0;
 }
