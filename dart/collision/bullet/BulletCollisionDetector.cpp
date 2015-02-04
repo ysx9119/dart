@@ -156,6 +156,24 @@ CollisionNode* BulletCollisionDetector::createCollisionNode(
 }
 
 //==============================================================================
+void BulletCollisionDetector::destroyCollisionNode(dynamics::BodyNode* _bodyNode)
+{
+  BulletCollisionNode* collNode
+      = static_cast<BulletCollisionNode*>(getCollisionNode(_bodyNode));
+  assert(collNode != NULL);
+
+  for (int i = 0; i < collNode->getNumBulletCollisionObjects(); ++i)
+  {
+    btCollisionObject* collObj = collNode->getBulletCollisionObject(i);
+    mBulletCollisionWorld->removeCollisionObject(collObj);
+
+    std::cout << mBulletCollisionWorld->getNumCollisionObjects() << std::endl;
+  }
+
+  delete collNode;
+}
+
+//==============================================================================
 bool BulletCollisionDetector::detectCollision(bool _checkAllCollisions,
                                               bool _calculateContactPoints)
 {

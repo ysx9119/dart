@@ -133,6 +133,9 @@ public:
   /// \brief
   virtual CollisionNode* createCollisionNode(dynamics::BodyNode* _bodyNode) = 0;
 
+  ///
+  virtual void destroyCollisionNode(dynamics::BodyNode* _bodyNode);
+
   /// \brief
   void enablePair(dynamics::BodyNode* _node1, dynamics::BodyNode* _node2);
 
@@ -185,7 +188,7 @@ public:
   /// \brief Skeleton array
   std::vector<dynamics::Skeleton*> mSkeletons;
 
-private:
+protected:
   /// \brief Return true if _skeleton is contained
   bool containSkeleton(const dynamics::Skeleton* _skeleton);
 

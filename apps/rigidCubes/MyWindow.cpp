@@ -63,8 +63,9 @@ void MyWindow::timeStepping() {
 
   // remove skeleton
   if (mWorld->getNumSkeletons() > 1) {
-    mWorld->removeSkeleton(mWorld->getSkeleton(0));
-    mWorld->removeSkeleton(mWorld->getSkeleton(1));
+//    mWorld->removeSkeleton(mWorld->getSkeleton(0));
+//    mWorld->removeSkeleton(mWorld->getSkeleton(1));
+    mWorld->removeAllSkeletons();
   }
   // add new skeleton
   std::string filename1 = DART_DATA_PATH"/skel/rigidclothpatch1.skel";

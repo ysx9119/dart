@@ -64,6 +64,8 @@ public:
   /// \copydoc CollisionDetector::createCollisionNode
   virtual CollisionNode* createCollisionNode(dynamics::BodyNode* _bodyNode);
 
+  virtual void destroyCollisionNode(dynamics::BodyNode* _bodyNode);
+
   /// \copydoc CollisionDetector::detectCollision
   virtual bool detectCollision(bool _checkAllCollisions,
                                bool _calculateContactPoints);

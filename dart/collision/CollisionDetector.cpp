@@ -161,11 +161,11 @@ void CollisionDetector::removeCollisionSkeletonNode(
                                collNode),
                         mCollisionNodes.end());
 
+  // Delete collNode
+  destroyCollisionNode(_bodyNode);
+
   // Remove collNode-_bodyNode pair from mBodyCollisionMap
   mBodyCollisionMap.erase(_bodyNode);
-
-  // Delete collNode
-  delete collNode;
 
   // Update mCollidablePairs
   for (size_t i = iCollNode + 1; i < mCollidablePairs.size(); ++i) {
@@ -180,6 +180,11 @@ void CollisionDetector::removeCollisionSkeletonNode(
     for (size_t i = 0; i < _bodyNode->getNumChildBodyNodes(); i++)
       removeCollisionSkeletonNode(_bodyNode->getChildBodyNode(i), true);
   }
+}
+
+void CollisionDetector::destroyCollisionNode(dynamics::BodyNode* _bodyNode)
+{
+  delete getCollisionNode(_bodyNode);
 }
 
 bool CollisionDetector::detectCollision(dynamics::BodyNode* _node1,
