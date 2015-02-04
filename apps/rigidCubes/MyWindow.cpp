@@ -67,33 +67,35 @@ void MyWindow::timeStepping() {
   // add new skeleton
   std::string filename1 = DART_DATA_PATH"/skel/rigidclothpatch1.skel";
   dart::dynamics::Skeleton* patch1 = dart::utils::SkelParser::readSkeleton(filename1);
-  mWorld->addSkeleton(patch1);
+//  mWorld->addSkeleton(patch1);
   std::string filename2 = DART_DATA_PATH"/skel/rigidclothpatch2.skel";
   dart::dynamics::Skeleton* patch2 = dart::utils::SkelParser::readSkeleton(filename2);
-  mWorld->addSkeleton(patch2);
+//  mWorld->addSkeleton(patch2);
 
   // set dimension
   Eigen::Vector3d dim1(0.0160333, 0.01, 0.00802094);
-  dart::dynamics::BoxShape* colShape1 = (dart::dynamics::BoxShape*)mWorld->getSkeleton(0)->getBodyNode(0)->getCollisionShape(0);
+  dart::dynamics::BoxShape* colShape1 = (dart::dynamics::BoxShape*)patch1->getBodyNode(0)->getCollisionShape(0);
   colShape1->setSize(dim1);
-  dart::dynamics::BoxShape* visShape1 = (dart::dynamics::BoxShape*)mWorld->getSkeleton(0)->getBodyNode(0)->getVisualizationShape(0);
+  dart::dynamics::BoxShape* visShape1 = (dart::dynamics::BoxShape*)patch1->getBodyNode(0)->getVisualizationShape(0);
   visShape1->setSize(dim1);
 
   Eigen::Vector3d dim2(0.0147092, 0.01, 0.0094610);
-  dart::dynamics::BoxShape* colShape2 = (dart::dynamics::BoxShape*)mWorld->getSkeleton(1)->getBodyNode(0)->getCollisionShape(0);
+  dart::dynamics::BoxShape* colShape2 = (dart::dynamics::BoxShape*)patch2->getBodyNode(0)->getCollisionShape(0);
   colShape2->setSize(dim2);
-  dart::dynamics::BoxShape* visShape2 = (dart::dynamics::BoxShape*)mWorld->getSkeleton(1)->getBodyNode(0)->getVisualizationShape(0);
+  dart::dynamics::BoxShape* visShape2 = (dart::dynamics::BoxShape*)patch2->getBodyNode(0)->getVisualizationShape(0);
   visShape2->setSize(dim2);
 
   Eigen::VectorXd state1(12);
   state1 << -1.43395,  -1.24326,  0.607935,  0.722328, 0.0256898,  0.154474, 0, 0, 0, 0, 0, 0;
-  mWorld->getSkeleton(0)->setState(state1);
-  mWorld->getSkeleton(0)->computeForwardKinematics(true,false,false);
+  patch1->setState(state1);
+  patch1->computeForwardKinematics(true,false,false);
   Eigen::VectorXd state2(12);
   state2 << -1.17932, -0.666113,  0.568555,  0.639145, 0.0779996,  0.312032, 0, 0, 0, 0, 0, 0;
-  mWorld->getSkeleton(1)->setState(state2);
-  mWorld->getSkeleton(1)->computeForwardKinematics(true,false,false);
+  patch2->setState(state2);
+  patch2->computeForwardKinematics(true,false,false);
 
+  mWorld->addSkeleton(patch1);
+  mWorld->addSkeleton(patch2);
 
   mWorld->step();
 //  mForce /= 2.0;
