@@ -238,16 +238,11 @@ bool CollisionDetector::isCollidable(const CollisionNode* _node1,
   dynamics::BodyNode* bn1 = _node1->getBodyNode();
   dynamics::BodyNode* bn2 = _node2->getBodyNode();
 
-    std::cout << "bn1:  " << bn1->getName() << std::endl;
-    std::cout << "bn2:  " << bn2->getName() << std::endl;
-
   if (!getPairCollidable(_node1, _node2))
     return false;
 
-  std::cout << "before node collidable" << std::endl;
   if (!bn1->isCollidable() || !bn2->isCollidable())
     return false;
-  std::cout << "after node collidable" << std::endl;
 
   if (bn1->getSkeleton() == bn2->getSkeleton())
   {
@@ -284,7 +279,6 @@ bool CollisionDetector::containSkeleton(const dynamics::Skeleton* _skeleton)
 bool CollisionDetector::getPairCollidable(const CollisionNode* _node1,
                                           const CollisionNode* _node2)
 {
-  std::cout << "get pair collidable" << std::endl;
   assert(_node1 != _node2);
 
   size_t index1 = _node1->getIndex();

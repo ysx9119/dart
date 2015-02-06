@@ -57,7 +57,6 @@ MyWindow::~MyWindow() {
 
 void MyWindow::timeStepping() {
 
-  std::cout << "time stepping" << std::endl;
   //mWorld->getSkeleton(1)->getBodyNode(0)->addExtForce(mForce);
 
 
