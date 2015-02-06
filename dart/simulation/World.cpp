@@ -114,7 +114,7 @@ void World::reset() {
 
 void World::step()
 {
-    /*
+
   // Integrate velocity unconstrained skeletons
   for (std::vector<dynamics::Skeleton*>::iterator it = mSkeletons.begin();
        it != mSkeletons.end(); ++it)
@@ -126,12 +126,10 @@ void World::step()
     (*it)->integrateVelocities(mTimeStep);
     (*it)->computeForwardKinematics(false, true, false);
   }
-  */
 
   // Detect active constraints and compute constraint impulses
   mConstraintSolver->solve();
 
-  /*
   // Compute velocity changes given constraint impulses
   for (std::vector<dynamics::Skeleton*>::iterator it = mSkeletons.begin();
        it != mSkeletons.end(); ++it)
@@ -164,7 +162,6 @@ void World::step()
     (*it)->clearExternalForces();
 //    (*it)->clearConstraintImpulses();
   }
-  */
 
   mTime += mTimeStep;
   mFrame++;
