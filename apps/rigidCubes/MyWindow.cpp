@@ -69,10 +69,10 @@ void MyWindow::timeStepping() {
   // add new skeleton
   std::string filename1 = DART_DATA_PATH"/skel/rigidclothpatch1.skel";
   dart::dynamics::Skeleton* patch1 = dart::utils::SkelParser::readSkeleton(filename1);
-//  mWorld->addSkeleton(patch1);
+  mWorld->addSkeleton(patch1);
   std::string filename2 = DART_DATA_PATH"/skel/rigidclothpatch2.skel";
   dart::dynamics::Skeleton* patch2 = dart::utils::SkelParser::readSkeleton(filename2);
-//  mWorld->addSkeleton(patch2);
+      mWorld->addSkeleton(patch2);
 
   // set dimension
   Eigen::Vector3d dim1(0.0160333, 0.01, 0.00802094);
@@ -96,8 +96,8 @@ void MyWindow::timeStepping() {
   patch2->setState(state2);
   patch2->computeForwardKinematics(true,false,false);
 
-  mWorld->addSkeleton(patch1);
-  mWorld->addSkeleton(patch2);
+//  mWorld->addSkeleton(patch1);
+//  mWorld->addSkeleton(patch2);
 
   mWorld->step();
 //  mForce /= 2.0;

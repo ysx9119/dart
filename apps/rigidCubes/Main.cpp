@@ -70,7 +70,7 @@ int main(int argc, char* argv[]) {
   myWorld->getSkeleton(1)->computeForwardKinematics(true,false,false);
 */
 
-  myWorld->getConstraintSolver()->setCollisionDetector(new dart::collision::BulletCollisionDetector());
+//  myWorld->getConstraintSolver()->setCollisionDetector(new dart::collision::BulletCollisionDetector());
 
   // create a window and link it to the world
   MyWindow window;

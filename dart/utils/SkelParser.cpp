@@ -199,6 +199,7 @@ simulation::World* SkelParser::readWorld(tinyxml2::XMLElement* _worldElement) {
       newWorld->setGravity(gravity);
     }
 
+    std::cout << "determine collision detector" << std::endl;
     // Collision detector
     if (hasElement(physicsElement, "collision_detector"))
     {
@@ -235,7 +236,7 @@ simulation::World* SkelParser::readWorld(tinyxml2::XMLElement* _worldElement) {
     else
     {
       newWorld->getConstraintSolver()->setCollisionDetector(
-            new collision::FCLMeshCollisionDetector());
+            new collision::BulletCollisionDetector());
     }
   }
 
