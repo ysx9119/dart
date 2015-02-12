@@ -48,10 +48,11 @@
 //#include "dart/collision/unc/UNCCollisionDetector.h"
 #include "dart/simulation/simulation.h"
 #include "dart/utils/utils.h"
+#include "dart/dart.h"
 
 using namespace dart;
 using namespace math;
-//using namespace collision;
+using namespace collision;
 using namespace dynamics;
 using namespace simulation;
 using namespace utils;
@@ -584,6 +585,117 @@ TEST_F(COLLISION, CollisionOfPrescribedJoints)
     EXPECT_NEAR(joint6->getVelocity(0), 0.0, tol);
     EXPECT_NEAR(joint6->getAcceleration(0), 0.0, tol);
   }
+}
+
+//==============================================================================
+TEST_F(COLLISION, SphereSphereTest)
+{
+  Eigen::Vector3d smallSize(Eigen::Vector3d(1.0, 1.0, 1.0));
+  Eigen::Vector3d largeSize(Eigen::Vector3d(5.0, 5.0, 5.0));
+
+  std::unique_ptr<World> world(new World());
+
+  Skeleton* skel1 = new Skeleton();
+  Skeleton* skel2 = new Skeleton();
+
+  BodyNode* body1 = new BodyNode();
+  BodyNode* body2 = new BodyNode();
+
+  FreeJoint* joint1 = new FreeJoint();
+  FreeJoint* joint2 = new FreeJoint();
+
+  EllipsoidShape* sphere1 = new EllipsoidShape(smallSize);
+  EllipsoidShape* sphere2 = new EllipsoidShape(largeSize);
+
+  body1->addVisualizationShape(sphere1);
+  body2->addVisualizationShape(sphere2);
+
+  body1->addCollisionShape(sphere1);
+  body2->addCollisionShape(sphere2);
+
+  body1->setParentJoint(joint1);
+  body2->setParentJoint(joint2);
+
+  skel1->addBodyNode(body1);
+  skel2->addBodyNode(body2);
+
+  world->addSkeleton(skel1);
+  world->addSkeleton(skel2);
+
+  size_t numCollisions = 0;
+  CollisionDetector* cd = nullptr;
+
+  // -- FCLMesh
+
+  world->getConstraintSolver()->setCollisionDetector(
+        new FCLMeshCollisionDetector());
+  cd = world->getConstraintSolver()->getCollisionDetector();
+
+  joint1->setPosition(5, 0.0);
+  skel1->computeForwardKinematics(true);
+  cd->detectCollision(true, true);
+  numCollisions = cd->getNumContacts();
+  std::cout << "FCLMesh - inside      : " << numCollisions << std::endl;
+
+  joint1->setPosition(5, 2.0);
+  skel1->computeForwardKinematics(true);
+  cd->detectCollision(true, true);
+  numCollisions = cd->getNumContacts();
+  std::cout << "FCLMesh - touching    : " << numCollisions << std::endl;
+
+  joint1->setPosition(5, 2.5);
+  skel1->computeForwardKinematics(true);
+  cd->detectCollision(true, true);
+  numCollisions = cd->getNumContacts();
+  std::cout << "FCLMesh - intersecting: " << numCollisions << std::endl;
+
+  // -- DART
+
+  world->getConstraintSolver()->setCollisionDetector(
+        new DARTCollisionDetector());
+  cd = world->getConstraintSolver()->getCollisionDetector();
+
+  joint1->setPosition(5, 0.0);
+  skel1->computeForwardKinematics(true);
+  cd->detectCollision(true, true);
+  numCollisions = cd->getNumContacts();
+  std::cout << "DART - inside      : " << numCollisions << std::endl;
+
+  joint1->setPosition(5, 2.0);
+  skel1->computeForwardKinematics(true);
+  cd->detectCollision(true, true);
+  numCollisions = cd->getNumContacts();
+  std::cout << "DART - touching    : " << numCollisions << std::endl;
+
+  joint1->setPosition(5, 2.5);
+  skel1->computeForwardKinematics(true);
+  cd->detectCollision(true, true);
+  numCollisions = cd->getNumContacts();
+  std::cout << "DART - intersecting: " << numCollisions << std::endl;
+
+  // -- Bullet
+
+  world->getConstraintSolver()->setCollisionDetector(
+        new BulletCollisionDetector());
+  cd = world->getConstraintSolver()->getCollisionDetector();
+
+  joint1->setPosition(5, 0.0);
+  skel1->computeForwardKinematics(true);
+  cd->detectCollision(true, true);
+  numCollisions = cd->getNumContacts();
+  std::cout << "Bullet - inside      : " << numCollisions << std::endl;
+
+  joint1->setPosition(5, 2.0);
+  skel1->computeForwardKinematics(true);
+  cd->detectCollision(true, true);
+  numCollisions = cd->getNumContacts();
+  std::cout << "Bullet - touching    : " << numCollisions << std::endl;
+
+  joint1->setPosition(5, 2.5);
+  skel1->computeForwardKinematics(true);
+  cd->detectCollision(true, true);
+  numCollisions = cd->getNumContacts();
+  std::cout << "Bullet - intersecting: " << numCollisions << std::endl;
 }
 
 //==============================================================================
