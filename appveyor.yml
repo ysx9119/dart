@@ -59,7 +59,10 @@ before_build:
 
 build:
   project: C:\projects\dart\build\dart.sln
-  
+
+  # MSBuild verbosity level (quiet|minimal|normal|detailed)
+  verbosity: detailed
+
 test_script:
   - cmd: ctest -C Release -VV
   - cmd: ctest -C Debug -VV
