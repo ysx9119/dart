@@ -65,7 +65,7 @@ before_build:
   # verbosity: normal
 
 build_script:
-  - cmd: "C:\Program Files (x86)\MSBuild\12.0\bin\msbuild.exe" "C:\projects\dart\build\dart.sln" /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /verbosity:detailed
+  - cmd: ""C:\Program Files (x86)\MSBuild\12.0\bin\msbuild.exe" "C:\projects\dart\build\dart.sln" /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /verbosity:detailed"
 
 test_script:
   - cmd: ctest -C Release -VV
