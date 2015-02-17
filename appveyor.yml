@@ -57,11 +57,15 @@ before_build:
   - cmd: if "%platform%"=="x64"   set CMAKE_GENERATOR_NAME=Visual Studio 12 Win64
   - cmd: cmake -G "%CMAKE_GENERATOR_NAME%" -DCMAKE_BUILD_TYPE=%configuration% -DBUILD_CORE_ONLY="%BUILD_CORE_ONLY%" -DBOOST_ROOT="%BOOST_ROOT%" -DBOOST_LIBRARYDIR="%BOOST_LIBRARYDIR%" -DBoost_USE_STATIC_LIBS="ON" -Durdfdom_DIR="%urdfdom_DIR%" -Durdfdom_headers_DIR="%urdfdom_headers_DIR%" ..
 
-build:
-  project: C:\projects\dart\build\dart.sln
+# Disable automatic builds
+# build:
+  # project: C:\projects\dart\build\dart.sln
 
   # MSBuild verbosity level (quiet|minimal|normal|detailed)
-  verbosity: normal
+  # verbosity: normal
+
+build_script:
+  - cmd: msbuild C:\projects\dart\build\dart.sln /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
 test_script:
   - cmd: ctest -C Release -VV
