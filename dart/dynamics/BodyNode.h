@@ -214,10 +214,10 @@ public:
   size_t getNumVisualizationShapes() const;
 
   /// Return _index-th visualization shape
-  Shape* getVisualizationShape(size_t _index);
+  Shape* getVisualizationShape(int _index);
 
   /// Return (const) _index-th visualization shape
-  const Shape* getVisualizationShape(size_t _index) const;
+  const Shape* getVisualizationShape(int _index) const;
 
   /// Add a collision shape into the bodynode
   void addCollisionShape(Shape* _p);
@@ -226,10 +226,10 @@ public:
   size_t getNumCollisionShapes() const;
 
   /// Return _index-th collision shape
-  Shape* getCollisionShape(size_t _index);
+  Shape* getCollisionShape(int _index);
 
   /// Return (const) _index-th collision shape
-  const Shape* getCollisionShape(size_t _index) const;
+  const Shape* getCollisionShape(int _index) const;
 
   /// Return the Skeleton this BodyNode belongs to
   Skeleton* getSkeleton();
@@ -277,7 +277,7 @@ public:
   const Marker* getMarker(size_t _index) const;
 
   /// Return true if _genCoordIndex-th generalized coordinate
-  bool dependsOn(size_t _genCoordIndex) const;
+  bool dependsOn(int _genCoordIndex) const;
 
   /// The number of the generalized coordinates by which this node is affected
   size_t getNumDependentGenCoords() const;
@@ -982,15 +982,15 @@ protected:
 
   ///
   virtual void updateMassMatrix();
-  virtual void aggregateMassMatrix(Eigen::MatrixXd* _MCol, size_t _col);
-  virtual void aggregateAugMassMatrix(Eigen::MatrixXd* _MCol, size_t _col,
+  virtual void aggregateMassMatrix(Eigen::MatrixXd* _MCol, int _col);
+  virtual void aggregateAugMassMatrix(Eigen::MatrixXd* _MCol, int _col,
                                       double _timeStep);
 
   ///
   virtual void updateInvMassMatrix();
   virtual void updateInvAugMassMatrix();
-  virtual void aggregateInvMassMatrix(Eigen::MatrixXd* _InvMCol, size_t _col);
-  virtual void aggregateInvAugMassMatrix(Eigen::MatrixXd* _InvMCol, size_t _col,
+  virtual void aggregateInvMassMatrix(Eigen::MatrixXd* _InvMCol, int _col);
+  virtual void aggregateInvAugMassMatrix(Eigen::MatrixXd* _InvMCol, int _col,
                                          double _timeStep);
 
   ///
@@ -1023,7 +1023,7 @@ protected:
   int mID;
 
   /// Counts the number of nodes globally.
-  static size_t msBodyNodeCount;
+  static int msBodyNodeCount;
 
   /// Name
   std::string mName;
