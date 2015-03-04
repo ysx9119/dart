@@ -56,38 +56,39 @@ class Shape;
 namespace dart {
 namespace collision {
 
-/// \brief
-class FCLCollisionNode : public CollisionNode {
+/// FCLCollisionNode
+class FCLCollisionNode : public CollisionNode
+{
 public:
-  /// \brief
+  /// Constructor
   explicit FCLCollisionNode(dynamics::BodyNode* _bodyNode);
 
-  /// \brief
+  /// Destructor
   virtual ~FCLCollisionNode();
 
-  /// \brief
-  int getNumCollisionGeometries() const;
+  /// Get number of collision geometries
+  size_t getNumCollisionGeometries() const;
 
-  /// \brief
-  fcl::CollisionGeometry* getCollisionGeometry(int _idx) const;
+  /// Get FCL collision geometry given index
+  fcl::CollisionGeometry* getCollisionGeometry(size_t _idx) const;
 
-  /// \brief
-  fcl::Transform3f getFCLTransform(int _idx) const;
+  /// Get FCL transformation of shape given index
+  fcl::Transform3f getFCLTransform(size_t _idx) const;
 
 private:
-  /// \brief
+  /// Array of FCL collision geometry
   std::vector<fcl::CollisionGeometry*> mCollisionGeometries;
 
-  /// \brief
+  /// Array of shapes
   std::vector<dynamics::Shape*> mShapes;
 };
 
-/// \brief
+///  Create FCL mesh from Assimp mesh
 template<class BV>
 fcl::BVHModel<BV>* createMesh(float _sizeX, float _sizeY, float _sizeZ,
                               const aiScene* _mesh);
 
-/// \brief
+/// Create FCL mesh from ellipsoid shape
 template<class BV>
 fcl::BVHModel<BV>* createEllipsoid(float _sizeX, float _sizeY, float _sizeZ);
 

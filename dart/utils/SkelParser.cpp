@@ -811,7 +811,9 @@ dynamics::Shape* SkelParser::readShape(tinyxml2::XMLElement* vizEle) {
       dterr << "Fail to load model[" << filename << "]." << std::endl;
     }
   } else {
-    dterr << "Unknown visualization shape.\n";
+    tinyxml2::XMLElement* ele = geometryEle->FirstChildElement();
+    dterr << "Unknown visualization shape [" << ele->Name()
+          << "]." << std::endl;
     assert(0);
   }
 

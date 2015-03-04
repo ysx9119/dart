@@ -47,20 +47,29 @@
 namespace dart {
 namespace collision {
 
+//==============================================================================
 FCLCollisionDetector::FCLCollisionDetector()
-  : CollisionDetector() {
+  : CollisionDetector()
+{
+  std::cout << "It's FCL detector!" << std::endl;
 }
 
-FCLCollisionDetector::~FCLCollisionDetector() {
+//==============================================================================
+FCLCollisionDetector::~FCLCollisionDetector()
+{
 }
 
+//==============================================================================
 CollisionNode* FCLCollisionDetector::createCollisionNode(
-    dynamics::BodyNode* _bodyNode) {
+    dynamics::BodyNode* _bodyNode)
+{
   return new FCLCollisionNode(_bodyNode);
 }
 
+//==============================================================================
 bool FCLCollisionDetector::detectCollision(bool _checkAllCollisions,
-                                           bool _calculateContactPoints) {
+                                           bool _calculateContactPoints)
+{
   // TODO(JS): _checkAllCollisions
   clearAllContacts();
 
@@ -79,8 +88,10 @@ bool FCLCollisionDetector::detectCollision(bool _checkAllCollisions,
   //    request.num_max_cost_sources;
   //    request.use_approximate_cost;
 
-  for (size_t i = 0; i < mCollisionNodes.size(); i++) {
-    for (size_t j = i + 1; j < mCollisionNodes.size(); j++) {
+  for (size_t i = 0; i < mCollisionNodes.size(); i++)
+  {
+    for (size_t j = i + 1; j < mCollisionNodes.size(); j++)
+    {
       result.clear();
       FCLCollisionNode* collNode1 =
           static_cast<FCLCollisionNode*>(mCollisionNodes[i]);
@@ -90,8 +101,10 @@ bool FCLCollisionDetector::detectCollision(bool _checkAllCollisions,
       if (!isCollidable(collNode1, collNode2))
         continue;
 
-      for (int k = 0; k < collNode1->getNumCollisionGeometries(); k++) {
-        for (int l = 0; l < collNode2->getNumCollisionGeometries(); l++) {
+      for (int k = 0; k < collNode1->getNumCollisionGeometries(); k++)
+      {
+        for (int l = 0; l < collNode2->getNumCollisionGeometries(); l++)
+        {
           int currContactNum = mContacts.size();
           fcl::collide(collNode1->getCollisionGeometry(k),
                        collNode1->getFCLTransform(k),
@@ -101,7 +114,8 @@ bool FCLCollisionDetector::detectCollision(bool _checkAllCollisions,
 
           unsigned int numContacts = result.numContacts();
 
-          for (unsigned int m = 0; m < numContacts; ++m) {
+          for (unsigned int m = 0; m < numContacts; ++m)
+          {
             const fcl::Contact& contact = result.getContact(m);
 
             Contact contactPair;
@@ -125,18 +139,22 @@ bool FCLCollisionDetector::detectCollision(bool _checkAllCollisions,
           }
 
           std::vector<bool>markForDeletion(numContacts, false);
-          for (size_t m = 0; m < numContacts; m++) {
-            for (size_t n = m + 1; n < numContacts; n++) {
+          for (size_t m = 0; m < numContacts; m++)
+          {
+            for (size_t n = m + 1; n < numContacts; n++)
+            {
               Eigen::Vector3d diff =
                   mContacts[currContactNum + m].point -
                   mContacts[currContactNum + n].point;
-              if (diff.dot(diff) < 1e-6) {
+              if (diff.dot(diff) < 1e-6)
+              {
                 markForDeletion[m] = true;
                 break;
               }
             }
           }
-          for (int m = numContacts - 1; m >= 0; m--) {
+          for (int m = numContacts - 1; m >= 0; m--)
+          {
             if (markForDeletion[m])
               mContacts.erase(mContacts.begin() + currContactNum + m);
           }
@@ -155,21 +173,27 @@ bool FCLCollisionDetector::detectCollision(bool _checkAllCollisions,
   return !mContacts.empty();
 }
 
+//==============================================================================
 bool FCLCollisionDetector::detectCollision(CollisionNode* _node1,
                                            CollisionNode* _node2,
-                                           bool _calculateContactPoints) {
+                                           bool _calculateContactPoints)
+{
   // TODO(JS): function not implemented
   assert(false);
   return false;
 }
 
+//==============================================================================
 CollisionNode* FCLCollisionDetector::findCollisionNode(
-    const fcl::CollisionGeometry* _fclCollGeom) const {
+    const fcl::CollisionGeometry* _fclCollGeom) const
+{
   int numCollNodes = mCollisionNodes.size();
-  for (int i = 0; i < numCollNodes; ++i) {
+  for (int i = 0; i < numCollNodes; ++i)
+  {
     FCLCollisionNode* collisionNode =
         static_cast<FCLCollisionNode*>(mCollisionNodes[i]);
-    for (int j = 0; j < collisionNode->getNumCollisionGeometries(); j++) {
+    for (int j = 0; j < collisionNode->getNumCollisionGeometries(); j++)
+    {
       if (collisionNode->getCollisionGeometry(j) == _fclCollGeom)
         return mCollisionNodes[i];
     }

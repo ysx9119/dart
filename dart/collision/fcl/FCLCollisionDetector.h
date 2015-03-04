@@ -47,28 +47,32 @@ namespace collision {
 
 class FCLCollisionNode;
 
-/// \brief
-class FCLCollisionDetector : public CollisionDetector {
+/// FCLCollisionDetector
+class FCLCollisionDetector : public CollisionDetector
+{
 public:
-  /// \brief
+  /// Constructor
   FCLCollisionDetector();
 
-  /// \brief
+  /// Destructor
   virtual ~FCLCollisionDetector();
 
   // Documentation inherited
-  virtual CollisionNode* createCollisionNode(dynamics::BodyNode* _bodyNode);
+  virtual CollisionNode* createCollisionNode(dynamics::BodyNode* _bodyNode)
+  override;
 
   // Documentation inherited
   virtual bool detectCollision(bool _checkAllCollisions,
-                               bool _calculateContactPoints);
-
-  CollisionNode* findCollisionNode(
-      const fcl::CollisionGeometry* _fclCollGeom) const;
+                               bool _calculateContactPoints) override;
 
 protected:
+  // Documentation inherited
   virtual bool detectCollision(CollisionNode* _node1, CollisionNode* _node2,
-                               bool _calculateContactPoints);
+                               bool _calculateContactPoints) override;
+
+  /// Get collision node given FCL collision geometry
+  CollisionNode* findCollisionNode(
+      const fcl::CollisionGeometry* _fclCollGeom) const;
 };
 
 }  // namespace collision
